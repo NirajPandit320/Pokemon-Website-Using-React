@@ -1,111 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap");
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --bg-1: #fff8e8;
+  --bg-2: #eaf9ff;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --text: #1d2a34;
+  --muted: #5f7280;
+  --brand: #ff7a18;
+  --brand-2: #007e9e;
+  --ring: rgba(0, 126, 158, 0.26);
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 12px 36px rgba(20, 40, 60, 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 6%, rgba(255, 122, 24, 0.18), transparent 32%),
+    radial-gradient(circle at 92% 12%, rgba(0, 126, 158, 0.2), transparent 34%),
+    linear-gradient(165deg, var(--bg-1), var(--bg-2));
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  min-height: 100vh;
+}
+
+.container {
+  width: min(1200px, 92vw);
   margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  padding: 2.2rem 0 3rem;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+.container h1 {
   margin: 0;
+  text-align: center;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+  font-size: clamp(2rem, 3.6vw, 3.3rem);
+  letter-spacing: 0.02em;
+  color: #0c2431;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.pokemon-search {
+  margin: 1.5rem auto 2rem;
+  display: flex;
+  justify-content: center;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.pokemon-search input {
+  width: min(540px, 100%);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 0.8rem 1.1rem;
+  font: 500 1rem "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: var(--surface-strong);
+  box-shadow: 0 6px 24px rgba(22, 40, 58, 0.1);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.pokemon-search input::placeholder {
+  color: #8696a2;
+}
+
+.pokemon-search input:focus {
+  border-color: var(--brand-2);
+  box-shadow: 0 0 0 5px var(--ring), 0 14px 26px rgba(22, 40, 58, 0.15);
+  transform: translateY(-1px);
+}
+
+.favourite-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.2rem auto 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.favourite-panel p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.toggle-btn,
+.pagination-wrap button,
+.text-btn {
+  border: 1px solid rgba(0, 126, 158, 0.45);
+  background: #fff;
+  color: var(--brand-2);
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font: 600 0.9rem "Space Grotesk", "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+.toggle-btn:hover,
+.pagination-wrap button:hover,
+.text-btn:hover {
+  background: #ebf9fd;
+}
+
+.search-history {
+  margin: 0.6rem auto 1.2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.65rem;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+}
+
+.chip-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.history-chip {
+  border: 0;
+  background: #e7f6fb;
+  color: #19495d;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  font: 500 0.85rem "Space Grotesk", "Segoe UI", sans-serif;
+  text-transform: capitalize;
+}
+
+.history-chip:hover {
+  background: #d4eef8;
+}
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 1.2rem;
+}
+
+.pokemon-card {
+  position: relative;
+  background: var(--surface);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  overflow: hidden;
+  display: grid;
+  gap: 0.85rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.favourite-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  border: 0;
+  background: transparent;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #a9b8c2;
+  cursor: pointer;
+}
+
+.favourite-btn.active {
+  color: #ff9d00;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -15% -55% auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 122, 24, 0.38), transparent 70%);
+  pointer-events: none;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 34px rgba(22, 40, 58, 0.2);
+}
+
+.pokemon-card figure {
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.pokemon-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  image-rendering: auto;
+  filter: drop-shadow(0 9px 11px rgba(22, 40, 58, 0.22));
+}
+
+.pokemon-name {
+  margin: 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.pokemon-card > div > p {
+  margin: 0;
+  text-align: center;
+  color: var(--brand-2);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.pokemon-info {
+  margin: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0.52rem 0.44rem;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.pokemon-info p {
+  margin: 0 0 0.2rem;
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.pokemon-info span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.pagination-wrap {
+  margin-top: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.pagination-wrap p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.pagination-wrap button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: min(640px, 94vw);
+    padding-top: 1.6rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .pokemon-card {
+    border-radius: 16px;
+    padding: 0.85rem;
+  }
+
+  .pokemon-image {
+    width: 96px;
+    height: 96px;
+  }
+
+  .favourite-panel,
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination-wrap {
+    flex-wrap: wrap;
+  }
 }

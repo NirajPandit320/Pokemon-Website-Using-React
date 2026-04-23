@@ -1,16 +1,114 @@
-# React + Vite
+# Pokemon Explorer (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Pokemon explorer built with React and Vite, powered by the PokeAPI. The app focuses on clean state-driven UI with practical hooks-based features such as search, pagination, favorites, and local persistence.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Pokemon listing with detailed card data (image, type, height, weight, speed, attack, experience, abilities)
+- Search by name
+- Recent search history (persisted in localStorage)
+- Favorites toggle per Pokemon (persisted in localStorage)
+- Filter to show only favorite Pokemon
+- Client-side pagination
+- Loading and error states
+- Responsive layout for desktop and mobile
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite 8
+- JavaScript (ES Modules)
+- CSS
+- PokeAPI: https://pokeapi.co/
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+	App.jsx
+	Pokemon.jsx
+	PokemonCard.jsx
+	Favourite.jsx
+	SearchHistory.jsx
+	Pagination.jsx
+	index.css
+	main.jsx
+```
+
+## Getting Started
+
+### 1) Clone the repository
+
+```bash
+git clone <your-repository-url>
+cd pokemon_niraj_react
+```
+
+### 2) Install dependencies
+
+```bash
+npm install
+```
+
+### 3) Start the development server
+
+```bash
+npm run dev
+```
+
+### 4) Build for production
+
+```bash
+npm run build
+```
+
+### 5) Preview production build
+
+```bash
+npm run preview
+```
+
+## Available Scripts
+
+- `npm run dev`: starts Vite development server
+- `npm run build`: builds production assets
+- `npm run preview`: previews the production build locally
+- `npm run lint`: runs ESLint
+
+## State Management Notes
+
+The app currently uses `useState` and `useEffect` for:
+
+- API data fetching
+- Search input and filtering
+- Search history persistence
+- Favorites persistence
+- Pagination control
+- Loading and error handling
+
+## API
+
+Data source used in the app:
+
+- `https://pokeapi.co/api/v2/pokemon?limit=124&offset=24`
+
+Each Pokemon detail URL returned by the list endpoint is fetched to render richer card information.
+
+## Future Improvements
+
+- Type-based filtering
+- Sort controls (name, weight, experience)
+- Detail modal page per Pokemon
+- Unit tests for core UI behavior
+- Better accessibility audit and keyboard interaction refinements
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request with a clear description
+
+## License
+
+No license file has been added yet. Add a `LICENSE` file if you plan to make usage terms explicit.
