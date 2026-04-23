@@ -2,6 +2,8 @@
 
 A responsive Pokemon explorer built with React and Vite, powered by the PokeAPI. The app focuses on clean state-driven UI with practical hooks-based features such as search, pagination, favorites, and local persistence.
 
+Live demo-"https://pokemonee1.netlify.app/"
+
 ## Features
 
 - Pokemon listing with detailed card data (image, type, height, weight, speed, attack, experience, abilities)
